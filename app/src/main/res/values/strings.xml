@@ -19,4 +19,8 @@
     <string name="_star">*</string>
     <string name="_slash">/</string>
     <string name="_carrot">^</string>
+    <string name="_enter">ENTER</string>
+    <string name="_clear">CLEAR</string>
+    <string name="_history">HISTORY</string>
+    <string name="_undo">UNDO</string>
 </resources>
