@@ -157,13 +157,13 @@
             android:textSize="18sp" />
 
         <Button
-            android:id="@+id/blank1"
+            android:id="@+id/negative"
             android:layout_row="3"
             android:layout_column="2"
             android:layout_gravity="fill"
             android:layout_margin="5dp"
-            android:text="@string/_."
-            android:textSize="0sp" />
+            android:text="@string/_negative"
+            android:textSize="18sp" />
 
         <Button
             android:id="@+id/opDivide"

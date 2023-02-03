@@ -4,6 +4,20 @@ import java.util.ArrayList;
 
 public class ErrorCheck extends Main {
 
+    public boolean checkNegativeInput(ArrayList<String> equation) {
+        if(equation.isEmpty()) {
+            return true;
+        }
+        String valid = "()+-*/^";
+        String lastItem = equation.get(equation.size() - 1);
+        if (!valid.contains(lastItem)) {
+            return false;
+        }
+
+        return true;
+
+    }
+
     public boolean checkOperatorInput(String operator, ArrayList<String> equation) {
         System.out.println("here");
         if (equation.isEmpty() && operator.equals("(")) {
@@ -19,21 +33,21 @@ public class ErrorCheck extends Main {
 
         System.out.println("here");
 
-        if(finalItem.equals(".") || finalItem.equals("#")) {
+        if(finalItem.equals(".") || finalItem.equals("~")) {
             return false;
         }
         if (operator.equals("(")) {
-            String valid = "(+-*^";
+            String valid = "(+-*/^";
             if (!valid.contains(lastItem)) {
                 return false;
             }
         } else if (operator.equals(")")) {
-            String notValid = "(+-*^";
+            String notValid = "(+-*/^";
             if (notValid.contains(lastItem)) {
                 return false;
             }
         } else {
-            String notValid = "(+-*^";
+            String notValid = "(+-*/^";
             System.out.println(lastItem);
             if (notValid.contains(lastItem)) {
                 return false;
