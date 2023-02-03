@@ -27,6 +27,21 @@ public class Main extends AppCompatActivity {
         setInputButtons();
     }
 
+    public void updateTextView(ArrayList<String> list) {
+
+        TextView tv = findViewById(R.id.formula);
+        if (list.isEmpty()) {
+            tv.setText(tv.getHint().toString());
+        } else {
+            StringBuilder s = new StringBuilder();
+            for (String input : list) {
+                s.append(input);
+            }
+            tv.setText(s.toString());
+        }
+        printArray(equation);
+    }
+
     protected void setInputButtons() {
 
         Button b1 = findViewById(R.id.button1);
@@ -86,15 +101,15 @@ public class Main extends AppCompatActivity {
         Button bClear = findViewById(R.id.clear);
         bClear.setOnClickListener(view -> handleClearButton()); //https://stackoverflow.com/questions/57137935/anonymous-new-view-onclicklistener-can-be-replaced-with-lambda
 
-        Button bEnter = findViewById(R.id.enter);
-        bEnter.setOnClickListener(view -> handleEnterButton());
-
         Button bUndo = findViewById(R.id.undo);
         bUndo.setOnClickListener(view -> handleUndoButton());
 
+        Button bEnter = findViewById(R.id.enter);
+        bEnter.setOnClickListener(view -> handleEnterButton());
+
+
+
     }
-
-
 
     protected void handleNumberButton(Button b) {
         String operators = "()+-*/^";
@@ -102,7 +117,12 @@ public class Main extends AppCompatActivity {
         if(equation.isEmpty() || operators.contains(equation.get(equation.size()-1))) {
             equation.add(s);
         } else {
-            String lastNum = equation.get(equation.size() -1); //double decimals
+            String lastNum = equation.get(equation.size() -1);
+            if (s.equals(".")) {
+                if (lastNum.contains(".")) {    //There is already a decimal in the number, do not add another
+                    return;
+                }
+            }
             equation.remove(equation.size() -1);
             equation.add(lastNum + s);
         }
@@ -122,28 +142,6 @@ public class Main extends AppCompatActivity {
         }
     }
 
-
-    protected void handleInputButton(Button b) {
-        String s = b.getText().toString();
-        equation.add(s);
-        updateTextView(equation);
-    }
-
-    public void updateTextView(ArrayList<String> list) {
-
-        TextView tv = findViewById(R.id.formula);
-        if (list.isEmpty()) {
-            tv.setText(tv.getHint().toString());
-        } else {
-            StringBuilder s = new StringBuilder();
-            for (String input : list) {
-                s.append(input);
-            }
-            tv.setText(s.toString());
-        }
-        printArray(equation);
-    }
-
     protected void handleClearButton(){
         equation.clear();
         updateTextView(equation);
@@ -157,9 +155,11 @@ public class Main extends AppCompatActivity {
     }
 
     protected void handleEnterButton(){
-        shuntingYard();
-
-
+        ErrorCheck ec = new ErrorCheck();
+        boolean passes = ec.checkEnterButton(equation);
+        if(passes) {
+            shuntingYard();
+        }
     }
 
     protected void shuntingYard(){
