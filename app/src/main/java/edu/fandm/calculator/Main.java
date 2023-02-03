@@ -5,9 +5,15 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 //import android.view.View;
+import android.util.Log;
+import android.view.Gravity;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 
 import android.widget.TextView;
+import android.widget.Toast;
+
 import java.util.ArrayList;
 
 import java.util.Stack;
@@ -16,6 +22,7 @@ import java.util.PriorityQueue;
 
 public class Main extends AppCompatActivity {
 
+    public static final String TAG = "MAIN";
     public ArrayList<String> equation = new ArrayList<>();
 
 
@@ -25,32 +32,9 @@ public class Main extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         setInputButtons();
+        Log.d(TAG, "App started");
     }
 
-    public void updateTextView(ArrayList<String> list) {
-
-        TextView tv = findViewById(R.id.formula);
-        if (list.isEmpty()) {
-            tv.setText(tv.getHint().toString());
-        } else {
-            StringBuilder s = new StringBuilder();
-            for (String input : list) {
-                if(input.charAt(0) == '~') {
-                    System.out.println("negative num");
-                    if (input.length() > 1) {
-                        String tmp = "-" + input.substring(1);
-                        s.append(tmp);
-                    } else {
-                        s.append("-");
-                    }
-                } else {
-                    s.append(input);
-                }
-            }
-            tv.setText(s.toString());
-        }
-        printArray(equation);
-    }
 
     protected void setInputButtons() {
 
@@ -139,7 +123,7 @@ public class Main extends AppCompatActivity {
             equation.remove(equation.size() -1);
             equation.add(lastNum + s);
         }
-        updateTextView(equation);
+        updateFormula();
     }
 
     protected void handleNegativeButton(Button b) {
@@ -149,7 +133,7 @@ public class Main extends AppCompatActivity {
         boolean passes = ec.checkNegativeInput(equation);
         if(passes) {
             equation.add(negation);
-            updateTextView(equation);
+            updateFormula();
         }
 
     }
@@ -163,20 +147,21 @@ public class Main extends AppCompatActivity {
 
         if(passes) {
             equation.add(operator);
-            updateTextView(equation);
+            updateFormula();
         }
     }
 
     protected void handleClearButton(){
         equation.clear();
-        updateTextView(equation);
+        updateFormula();
     }
 
     protected void handleUndoButton(){
         if(!equation.isEmpty()) {
             equation.remove(equation.size() - 1);
+            updateFormula();
         }
-        updateTextView(equation);
+
     }
 
     protected void handleEnterButton(){
@@ -184,6 +169,9 @@ public class Main extends AppCompatActivity {
         boolean passes = ec.checkEnterButton(equation);
         if(passes) {
             shuntingYard();
+        } else {
+            Toast error = writeErrorMessage("Invalid Expression");
+            error.show();
         }
     }
 
@@ -218,7 +206,7 @@ public class Main extends AppCompatActivity {
                 tmp.add(item);
             }
         }
-        updateTextView(tmp);
+
         printArray(tmp);
 
         //PriorityQueue<String> queue = new PriorityQueue<>();
@@ -237,8 +225,8 @@ public class Main extends AppCompatActivity {
                     s1 = "-" + s1.substring(1);
                 }
 
-                double num2 = Double.parseDouble(s1);
-                double num1 = Double.parseDouble(s2);
+                double num2 = Double.parseDouble(s2);
+                double num1 = Double.parseDouble(s1);
                 double ans;
                 switch(item) {
                     case "+":
@@ -268,8 +256,13 @@ public class Main extends AppCompatActivity {
 
         String ans = stack.pop();
         equation.clear();
+
+        String lastTwo = ans.substring(ans.length() - 2);
+        if (lastTwo.equals(".0")) {
+            ans = ans.substring(0, ans.length() - 2);
+        }
         equation.add(ans);
-        updateTextView(equation);
+        updateFormula();
 
 
     }
@@ -284,6 +277,41 @@ public class Main extends AppCompatActivity {
         } else {
             return 3;
         }
+    }
+
+    public void updateFormula() {
+        TextView tv = findViewById(R.id.formula);
+        if (equation.isEmpty()) {
+            tv.setText(tv.getHint().toString());
+        } else {
+            StringBuilder s = new StringBuilder();
+            for (String input : equation) {
+                if(input.charAt(0) == '~') {
+                    System.out.println("negative num");
+                    if (input.length() > 1) {
+                        String tmp = "-" + input.substring(1);
+                        s.append(tmp);
+                    } else {
+                        s.append("-");
+                    }
+                } else {
+                    s.append(input);
+                }
+            }
+            tv.setText(s.toString());
+        }
+        printArray(equation);
+    }
+
+    public Toast writeErrorMessage(String s){
+        Toast error = Toast.makeText(getApplicationContext(), s, Toast.LENGTH_SHORT);
+        ViewGroup group = (ViewGroup) error.getView();
+        TextView messageTextView = (TextView) group.getChildAt(0); //        Toast error = Toast.makeText(getApplicationContext(), s, Toast.LENGTH_SHORT); https://stackoverflow.com/questions/5274354/how-can-we-increase-the-font-size-in-toast
+        messageTextView.setTextSize(25);
+        messageTextView.setTextColor(this.getResources().getColor(R.color.red));  //https://stackoverflow.com/questions/4499208/android-setting-text-view-color-from-java-code
+        error.setGravity(Gravity.CENTER, 0, 0);
+        return error;
+
     }
 
     public void printArray(ArrayList<String> a) {

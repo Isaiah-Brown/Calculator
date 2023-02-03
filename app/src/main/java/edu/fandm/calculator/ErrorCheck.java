@@ -1,8 +1,13 @@
 package edu.fandm.calculator;
 
+import android.view.Gravity;
+import android.widget.Toast;
+
 import java.util.ArrayList;
 
 public class ErrorCheck extends Main {
+
+    public static final String TAG = "MAIN";
 
     public boolean checkNegativeInput(ArrayList<String> equation) {
         if(equation.isEmpty()) {
@@ -92,5 +97,7 @@ public class ErrorCheck extends Main {
 
         return true;
     }
+
+
 
 }
