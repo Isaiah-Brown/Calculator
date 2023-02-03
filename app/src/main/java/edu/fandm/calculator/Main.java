@@ -35,7 +35,17 @@ public class Main extends AppCompatActivity {
         } else {
             StringBuilder s = new StringBuilder();
             for (String input : list) {
-                s.append(input);
+                if(input.charAt(0) == '~') {
+                    System.out.println("negative num");
+                    if (input.length() > 1) {
+                        String tmp = "-" + input.substring(1);
+                        s.append(tmp);
+                    } else {
+                        s.append("-");
+                    }
+                } else {
+                    s.append(input);
+                }
             }
             tv.setText(s.toString());
         }
@@ -76,6 +86,9 @@ public class Main extends AppCompatActivity {
 
         Button bDecimal = findViewById(R.id.buttonDecimal);
         bDecimal.setOnClickListener(view -> handleNumberButton(bDecimal));
+
+        Button bNegative = findViewById(R.id.negative);
+        bNegative.setOnClickListener(view -> handleNegativeButton(bNegative));
 
         Button bLeftP = findViewById(R.id.buttonLeftP);
         bLeftP.setOnClickListener(view -> handleOperatorButton(bLeftP));
@@ -127,6 +140,18 @@ public class Main extends AppCompatActivity {
             equation.add(lastNum + s);
         }
         updateTextView(equation);
+    }
+
+    protected void handleNegativeButton(Button b) {
+        ErrorCheck ec = new ErrorCheck();
+        String negation = "~";
+
+        boolean passes = ec.checkNegativeInput(equation);
+        if(passes) {
+            equation.add(negation);
+            updateTextView(equation);
+        }
+
     }
 
     protected void handleOperatorButton(Button b) {
@@ -202,8 +227,18 @@ public class Main extends AppCompatActivity {
 
         for(String item : tmp) {
             if (operators.contains(item)) {
-                double num2 = Double.parseDouble(stack.pop());
-                double num1 = Double.parseDouble(stack.pop());
+                String s2 = stack.pop();
+                String s1 = stack.pop();
+
+                if (s2.charAt(0) == '~') {
+                    s2 = "-" + s2.substring(1);
+                }
+                if (s1.charAt(0) == '~') {
+                    s1 = "-" + s1.substring(1);
+                }
+
+                double num2 = Double.parseDouble(s1);
+                double num1 = Double.parseDouble(s2);
                 double ans;
                 switch(item) {
                     case "+":

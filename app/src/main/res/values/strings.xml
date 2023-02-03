@@ -12,6 +12,7 @@
     <string name="_9">9</string>
     <string name="_0">0</string>
     <string name="_.">.</string>
+    <string name="_negative">(-)</string>
     <string name="_left_p">(</string>
     <string name="_right_p">)</string>
     <string name="_plus">+</string>
