@@ -23,7 +23,7 @@ public class ErrorCheck extends Main {
             return false;
         }
         if (operator.equals("(")) {
-            String valid = "()+-*^";
+            String valid = "(+-*^";
             if (!valid.contains(lastItem)) {
                 return false;
             }
@@ -41,4 +41,42 @@ public class ErrorCheck extends Main {
         }
         return true;
     }
+
+    public boolean checkEnterButton(ArrayList<String> equation) {
+        if (equation.isEmpty()) {
+            return false;
+        }
+        String operators = "+-*/^";
+        String lastItem = equation.get(equation.size() - 1);
+        if(operators.contains(lastItem)) {
+            return false;
+        }
+
+        int leftCount = 0;
+        int rightCount = 0;
+        int opCount = 0;
+        int numCount = 0;
+        for(String item : equation) {
+            if(item.equals("(")) {
+                leftCount += 1;
+            } else if (item.equals(")")) {
+                rightCount += 1;
+            } else if (operators.contains(item)) {
+                opCount += 1;
+            } else {
+                numCount += 1;
+            }
+        }
+        System.out.println("left: " + leftCount);
+        System.out.println("right: " + rightCount);
+        if (leftCount != rightCount) {
+            return false;
+        }
+        if (opCount + 1 != numCount) {
+            return false;
+        }
+
+        return true;
+    }
+
 }
