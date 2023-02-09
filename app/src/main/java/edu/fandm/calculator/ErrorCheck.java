@@ -1,5 +1,6 @@
 package edu.fandm.calculator;
 
+import android.util.Log;
 import android.view.Gravity;
 import android.widget.Toast;
 
@@ -62,14 +63,22 @@ public class ErrorCheck extends Main {
     }
 
     public boolean checkEnterButton(ArrayList<String> equation) {
-        if (equation.isEmpty()) {
-            return false;
-        }
+        Log.d("Enter checker", "here");
+
         String operators = "+-*/^";
         String lastItem = equation.get(equation.size() - 1);
-        if(operators.contains(lastItem)) {
+        if(operators.contains(lastItem) || lastItem.equals(".") || lastItem.equals("~")) {
             return false;
         }
+
+        if (lastItem.length() > 1) {
+            String finalItem = lastItem.substring(lastItem.length() - 1);
+            System.out.println(finalItem);
+            if (finalItem.equals(".")) {
+                return false;
+            }
+        }
+
 
         int leftCount = 0;
         int rightCount = 0;
@@ -91,9 +100,12 @@ public class ErrorCheck extends Main {
         if (leftCount != rightCount) {
             return false;
         }
-        if (opCount + 1 != numCount) {
+        if (opCount + 1 != numCount || opCount == 0) {
             return false;
         }
+
+        Log.d("num", String.valueOf(numCount));
+        Log.d("op", String.valueOf(opCount));
 
         return true;
     }
