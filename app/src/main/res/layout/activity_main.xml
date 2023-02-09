@@ -19,194 +19,268 @@
     <GridLayout
         android:id="@+id/inputButtons"
         android:layout_width="match_parent"
-        android:layout_height="290dp"
-        android:layout_margin="10dp"
+        android:layout_height="wrap_content"
         android:columnCount="4"
         android:rowCount="5"
-
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/formula">
 
         <Button
             android:id="@+id/button1"
-            android:layout_row="0"
-            android:layout_column="0"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
             android:layout_gravity="fill"
-            android:layout_margin="5dp"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            app:cornerRadius="0dp"
             android:text="@string/_1"
             android:textSize="18sp" />
 
         <Button
             android:id="@+id/button2"
-            android:layout_row="0"
-            android:layout_column="1"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
             android:layout_gravity="fill"
-            android:layout_margin="5dp"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            app:cornerRadius="0dp"
             android:text="@string/_2"
             android:textSize="18sp" />
 
         <Button
             android:id="@+id/button3"
-            android:layout_row="0"
-            android:layout_column="2"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
             android:layout_gravity="fill"
-            android:layout_margin="5dp"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            app:cornerRadius="0dp"
             android:text="@string/_3"
             android:textSize="18sp" />
 
         <Button
             android:id="@+id/opAdd"
-            android:layout_row="0"
-            android:layout_column="3"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
             android:layout_gravity="fill"
-            android:layout_margin="5dp"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            app:cornerRadius="0dp"
             android:text="@string/_plus"
             android:textSize="18sp" />
 
         <Button
             android:id="@+id/button4"
-            android:layout_row="1"
-            android:layout_column="0"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
             android:layout_gravity="fill"
-            android:layout_margin="5dp"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            app:cornerRadius="0dp"
             android:text="@string/_4"
             android:textSize="18sp" />
 
         <Button
             android:id="@+id/button5"
-            android:layout_row="1"
-            android:layout_column="1"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
             android:layout_gravity="fill"
-            android:layout_margin="5dp"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            app:cornerRadius="0dp"
             android:text="@string/_5"
             android:textSize="18sp" />
 
         <Button
             android:id="@+id/button6"
-            android:layout_row="1"
-            android:layout_column="2"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
             android:layout_gravity="fill"
-            android:layout_margin="5dp"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            app:cornerRadius="0dp"
             android:text="@string/_6"
             android:textSize="18sp" />
 
         <Button
             android:id="@+id/opSubtract"
-            android:layout_row="1"
-            android:layout_column="3"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
             android:layout_gravity="fill"
-            android:layout_margin="5dp"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            app:cornerRadius="0dp"
             android:text="@string/_minus"
             android:textSize="18sp" />
 
         <Button
             android:id="@+id/button7"
-            android:layout_row="2"
-            android:layout_column="0"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
             android:layout_gravity="fill"
-            android:layout_margin="5dp"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            app:cornerRadius="0dp"
             android:text="@string/_7"
             android:textSize="18sp" />
 
         <Button
             android:id="@+id/button8"
-            android:layout_row="2"
-            android:layout_column="1"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
             android:layout_gravity="fill"
-            android:layout_margin="5dp"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            app:cornerRadius="0dp"
             android:text="@string/_8"
             android:textSize="18sp" />
 
         <Button
             android:id="@+id/button9"
-            android:layout_row="2"
-            android:layout_column="2"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
             android:layout_gravity="fill"
-            android:layout_margin="5dp"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            app:cornerRadius="0dp"
             android:text="@string/_9"
             android:textSize="18sp" />
 
         <Button
             android:id="@+id/opMultiply"
-            android:layout_row="2"
-            android:layout_column="3"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
             android:layout_gravity="fill"
-            android:layout_margin="5dp"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            app:cornerRadius="0dp"
             android:text="@string/_star"
             android:textSize="18sp" />
 
         <Button
             android:id="@+id/button0"
-            android:layout_row="3"
-            android:layout_column="0"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
             android:layout_gravity="fill"
-            android:layout_margin="5dp"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            app:cornerRadius="0dp"
             android:text="@string/_0"
             android:textSize="18sp" />
 
         <Button
             android:id="@+id/buttonDecimal"
-            android:layout_row="3"
-            android:layout_column="1"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
             android:layout_gravity="fill"
-            android:layout_margin="5dp"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            app:cornerRadius="0dp"
             android:text="@string/_."
             android:textSize="18sp" />
 
         <Button
             android:id="@+id/negative"
-            android:layout_row="3"
-            android:layout_column="2"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
             android:layout_gravity="fill"
-            android:layout_margin="5dp"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            app:cornerRadius="0dp"
             android:text="@string/_negative"
             android:textSize="18sp" />
 
         <Button
             android:id="@+id/opDivide"
-            android:layout_row="3"
-            android:layout_column="3"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
             android:layout_gravity="fill"
-            android:layout_margin="5dp"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            app:cornerRadius="0dp"
             android:text="@string/_slash"
             android:textSize="18sp" />
 
         <Button
             android:id="@+id/buttonLeftP"
-            android:layout_row="4"
-            android:layout_column="0"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
             android:layout_gravity="fill"
-            android:layout_margin="5dp"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            app:cornerRadius="0dp"
             android:text="@string/_left_p"
             android:textSize="18sp" />
 
         <Button
             android:id="@+id/buttonRightP"
-            android:layout_row="4"
-            android:layout_column="1"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
             android:layout_gravity="fill"
-            android:layout_margin="5dp"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            app:cornerRadius="0dp"
             android:text="@string/_right_p"
             android:textSize="18sp" />
 
         <Button
             android:id="@+id/undo"
-            android:layout_row="4"
-            android:layout_column="2"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
             android:layout_gravity="fill"
-            android:layout_margin="5dp"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            app:cornerRadius="0dp"
             android:text="@string/_undo"
             android:textSize="18sp" />
 
         <Button
             android:id="@+id/opSquare"
-            android:layout_row="4"
-            android:layout_column="3"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
             android:layout_gravity="fill"
-            android:layout_margin="5dp"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            app:cornerRadius="0dp"
             android:text="@string/_carrot"
             android:textSize="18sp"
 
@@ -217,42 +291,51 @@
     <GridLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:columnCount="2"
+        android:columnCount="3"
         android:rowCount="1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/inputButtons">
+        app:layout_constraintBottom_toBottomOf="parent"
+        >
 
+        <Button
+            android:id="@+id/history"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:layout_row="0"
+            android:layout_column="0"
+
+
+            android:text="@string/_history"
+
+             />
 
         <Button
             android:id="@+id/enter"
-            android:layout_width="240dp"
+            android:layout_height="60dp"
+            android:layout_gravity="fill"
             android:layout_row="0"
-            android:layout_column="0"
-            android:layout_marginStart="15dp"
-            android:layout_marginEnd="5dp"
+            android:layout_column="1"
             android:text="@string/_enter"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            />
 
         <Button
             android:id="@+id/clear"
+            android:layout_height="60dp"
             android:layout_row="0"
-            android:layout_column="1"
-            android:layout_gravity="fill"
+            android:layout_column="2"
+            android:layout_width="wrap_content"
             android:layout_marginStart="5dp"
             android:layout_marginEnd="15dp"
             android:text="@string/_clear"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            />
 
     </GridLayout>
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:text="@string/_history"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintRight_toRightOf="parent" />
+
+
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"
@@ -260,5 +343,8 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_begin="20dp" />
+
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

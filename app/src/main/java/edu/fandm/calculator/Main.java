@@ -3,19 +3,27 @@ package edu.fandm.calculator;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 //import android.view.View;
+import android.os.VibrationEffect;
+import android.os.Vibrator;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 
+import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
 
+import java.util.List;
 import java.util.Stack;
 import java.util.PriorityQueue;
 
@@ -24,6 +32,7 @@ public class Main extends AppCompatActivity {
 
     public static final String TAG = "MAIN";
     public ArrayList<String> equation = new ArrayList<>();
+    public ArrayList<String> history = new ArrayList<>();
 
 
     @Override
@@ -31,8 +40,14 @@ public class Main extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        setInputButtons();
         Log.d(TAG, "App started");
+        setInputButtons();
+
+        //ListView lv = (ListView) findViewById(R.id.listViewHistory);
+        //ArrayAdapter<String> aa = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, history);  //https://www.youtube.com/watch?v=3a5pjG4mv14
+        //lv.setAdapter(aa);
+
+
     }
 
 
@@ -104,8 +119,17 @@ public class Main extends AppCompatActivity {
         Button bEnter = findViewById(R.id.enter);
         bEnter.setOnClickListener(view -> handleEnterButton());
 
+        Button bHistory = findViewById(R.id.history);
+        bHistory.setOnClickListener(view -> handleHistoryButton());
 
 
+
+    }
+
+    protected void handleHistoryButton() {
+        Intent i = new Intent(this, History.class);
+        i.putStringArrayListExtra("hist", history);
+        startActivity(i);
     }
 
     protected void handleNumberButton(Button b) {
@@ -158,13 +182,21 @@ public class Main extends AppCompatActivity {
 
     protected void handleUndoButton(){
         if(!equation.isEmpty()) {
+            String s = equation.get(equation.size() - 1);
             equation.remove(equation.size() - 1);
+            if (s.length() > 1) {
+                s = s.substring(0, s.length() - 1);
+                equation.add(s);
+            }
             updateFormula();
         }
 
     }
 
     protected void handleEnterButton(){
+        if (equation.size() < 3) {
+            return;
+        }
         ErrorCheck ec = new ErrorCheck();
         boolean passes = ec.checkEnterButton(equation);
         if(passes) {
@@ -182,9 +214,15 @@ public class Main extends AppCompatActivity {
         stack.push("(");
 
         String operators = "()+-*/^";
-
         printArray(equation);
+
+        //StringBuilder historyEntry;
+
+        //String h = "";
+
         for (String item : equation) {
+            //h += item;
+            //historyEntry.append(item);
             printArray(tmp);
             printStack(stack);
             if (operators.contains(item)) {
@@ -239,9 +277,23 @@ public class Main extends AppCompatActivity {
                         ans = num1 * num2;
                         break;
                     case "/":
+                        if(num2 > -0.0000000001 && num2 < 0.0000000001 ) {
+                            Toast t = writeErrorMessage("Undefined");
+                            t.show();
+                            printArray(equation);
+                            equation.remove(equation.size() - 1);
+                            return;
+                        }
                         ans = num1 / num2;
                         break;
                     case "^":
+                        if(num1 < 0 && (num2 > 0 && num2 < 1)) {
+                            Toast t = writeErrorMessage("Not real number");
+                            t.show();
+                            printArray(equation);
+                            equation.remove(equation.size() - 1);
+                            return;
+                        }
                         ans = Math.pow(num1, num2);
                         break;
                     default:
@@ -262,12 +314,17 @@ public class Main extends AppCompatActivity {
             ans = ans.substring(0, ans.length() - 2);
         }
         equation.add(ans);
+        TextView tv = findViewById(R.id.formula);
+        history.add(tv.getText().toString() + " = " + ans);
+        //h = h.substring(0, h.length() - 1);
+        //h += " = " + ans;
+        //historyEntry.append(" = " + ans);
+        //history.add(h);
+        //Log.d(TAG, h);
         updateFormula();
-
-
     }
 
-    protected Integer weight(String s) {
+    protected Integer weight(String s) { //shuntingyard helper
         if(s.equals("(")) {
             return 4;
         } else if (s.equals("^")) {
@@ -306,7 +363,7 @@ public class Main extends AppCompatActivity {
     public Toast writeErrorMessage(String s){
         Toast error = Toast.makeText(getApplicationContext(), s, Toast.LENGTH_SHORT);
         ViewGroup group = (ViewGroup) error.getView();
-        TextView messageTextView = (TextView) group.getChildAt(0); //        Toast error = Toast.makeText(getApplicationContext(), s, Toast.LENGTH_SHORT); https://stackoverflow.com/questions/5274354/how-can-we-increase-the-font-size-in-toast
+        TextView messageTextView = (TextView) group.getChildAt(0); //        https://stackoverflow.com/questions/5274354/how-can-we-increase-the-font-size-in-toast
         messageTextView.setTextSize(25);
         messageTextView.setTextColor(this.getResources().getColor(R.color.red));  //https://stackoverflow.com/questions/4499208/android-setting-text-view-color-from-java-code
         error.setGravity(Gravity.CENTER, 0, 0);

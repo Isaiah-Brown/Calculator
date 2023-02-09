@@ -24,4 +24,5 @@
     <string name="_clear">CLEAR</string>
     <string name="_history">HISTORY</string>
     <string name="_undo">UNDO</string>
+    <string name="_back">BACK</string>
 </resources>
