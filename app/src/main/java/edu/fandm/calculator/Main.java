@@ -299,7 +299,6 @@ public class Main extends AppCompatActivity {
                     default:
                         ans = 0.0;
                 }
-                System.out.println(String.valueOf(ans));
                 stack.push(String.valueOf(ans));
             } else {
                 stack.push(item);

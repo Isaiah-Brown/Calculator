@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -27,5 +28,8 @@ public class History extends AppCompatActivity {
             this.aa = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_list_item_1, history);
             lv.setAdapter(aa);
         }
+
     }
+
+
 }

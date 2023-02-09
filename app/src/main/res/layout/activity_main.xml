@@ -22,7 +22,8 @@
         android:layout_height="wrap_content"
         android:columnCount="4"
         android:rowCount="5"
-        app:layout_constraintTop_toBottomOf="@+id/formula">
+        app:layout_constraintBottom_toTopOf="@+id/bottomButtons"
+        >
 
         <Button
             android:id="@+id/button1"
@@ -35,7 +36,10 @@
             android:insetBottom="0dp"
             app:cornerRadius="0dp"
             android:text="@string/_1"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            android:textColor="@color/white"
+            android:background="@color/purple_500"
+            />
 
         <Button
             android:id="@+id/button2"
@@ -48,7 +52,10 @@
             android:insetBottom="0dp"
             app:cornerRadius="0dp"
             android:text="@string/_2"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            android:textColor="@color/white"
+            android:background="@color/purple_500"
+            />
 
         <Button
             android:id="@+id/button3"
@@ -61,7 +68,10 @@
             android:insetBottom="0dp"
             app:cornerRadius="0dp"
             android:text="@string/_3"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            android:textColor="@color/white"
+            android:background="@color/purple_500"
+            />
 
         <Button
             android:id="@+id/opAdd"
@@ -74,7 +84,10 @@
             android:insetBottom="0dp"
             app:cornerRadius="0dp"
             android:text="@string/_plus"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            android:textColor="@color/white"
+            android:background="@color/purple_700"
+            />
 
         <Button
             android:id="@+id/button4"
@@ -87,7 +100,10 @@
             android:insetBottom="0dp"
             app:cornerRadius="0dp"
             android:text="@string/_4"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            android:textColor="@color/white"
+            android:background="@color/purple_500"
+            />
 
         <Button
             android:id="@+id/button5"
@@ -100,7 +116,10 @@
             android:insetBottom="0dp"
             app:cornerRadius="0dp"
             android:text="@string/_5"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            android:textColor="@color/white"
+            android:background="@color/purple_500"
+            />
 
         <Button
             android:id="@+id/button6"
@@ -113,7 +132,10 @@
             android:insetBottom="0dp"
             app:cornerRadius="0dp"
             android:text="@string/_6"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            android:textColor="@color/white"
+            android:background="@color/purple_500"
+            />
 
         <Button
             android:id="@+id/opSubtract"
@@ -126,7 +148,10 @@
             android:insetBottom="0dp"
             app:cornerRadius="0dp"
             android:text="@string/_minus"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            android:textColor="@color/white"
+            android:background="@color/purple_700"
+            />
 
         <Button
             android:id="@+id/button7"
@@ -139,7 +164,10 @@
             android:insetBottom="0dp"
             app:cornerRadius="0dp"
             android:text="@string/_7"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            android:textColor="@color/white"
+            android:background="@color/purple_500"
+            />
 
         <Button
             android:id="@+id/button8"
@@ -152,7 +180,10 @@
             android:insetBottom="0dp"
             app:cornerRadius="0dp"
             android:text="@string/_8"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            android:textColor="@color/white"
+            android:background="@color/purple_500"
+            />
 
         <Button
             android:id="@+id/button9"
@@ -165,7 +196,10 @@
             android:insetBottom="0dp"
             app:cornerRadius="0dp"
             android:text="@string/_9"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            android:textColor="@color/white"
+            android:background="@color/purple_500"
+            />
 
         <Button
             android:id="@+id/opMultiply"
@@ -178,7 +212,10 @@
             android:insetBottom="0dp"
             app:cornerRadius="0dp"
             android:text="@string/_star"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            android:textColor="@color/white"
+            android:background="@color/purple_700"
+            />
 
         <Button
             android:id="@+id/button0"
@@ -191,7 +228,10 @@
             android:insetBottom="0dp"
             app:cornerRadius="0dp"
             android:text="@string/_0"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            android:textColor="@color/white"
+            android:background="@color/purple_500"
+            />
 
         <Button
             android:id="@+id/buttonDecimal"
@@ -204,7 +244,10 @@
             android:insetBottom="0dp"
             app:cornerRadius="0dp"
             android:text="@string/_."
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            android:textColor="@color/white"
+            android:background="@color/purple_500"
+            />
 
         <Button
             android:id="@+id/negative"
@@ -217,7 +260,10 @@
             android:insetBottom="0dp"
             app:cornerRadius="0dp"
             android:text="@string/_negative"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            android:textColor="@color/white"
+            android:background="@color/purple_500"
+            />
 
         <Button
             android:id="@+id/opDivide"
@@ -230,7 +276,10 @@
             android:insetBottom="0dp"
             app:cornerRadius="0dp"
             android:text="@string/_slash"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            android:textColor="@color/white"
+            android:background="@color/purple_700"
+            />
 
         <Button
             android:id="@+id/buttonLeftP"
@@ -243,7 +292,10 @@
             android:insetBottom="0dp"
             app:cornerRadius="0dp"
             android:text="@string/_left_p"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            android:textColor="@color/white"
+            android:background="@color/purple_500"
+            />
 
         <Button
             android:id="@+id/buttonRightP"
@@ -256,7 +308,10 @@
             android:insetBottom="0dp"
             app:cornerRadius="0dp"
             android:text="@string/_right_p"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            android:textColor="@color/white"
+            android:background="@color/purple_500"
+            />
 
         <Button
             android:id="@+id/undo"
@@ -269,7 +324,10 @@
             android:insetBottom="0dp"
             app:cornerRadius="0dp"
             android:text="@string/_undo"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            android:textColor="@color/white"
+            android:background="@color/purple_500"
+            />
 
         <Button
             android:id="@+id/opSquare"
@@ -283,56 +341,75 @@
             app:cornerRadius="0dp"
             android:text="@string/_carrot"
             android:textSize="18sp"
-
+            android:textColor="@color/white"
+            android:background="@color/purple_700"
             />
 
     </GridLayout>
 
+    
     <GridLayout
+        android:id="@+id/bottomButtons"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:columnCount="3"
-        android:rowCount="1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
+
         >
 
         <Button
             android:id="@+id/history"
-            android:layout_width="wrap_content"
+            android:layout_width="120dp"
+            android:layout_gravity="fill"
             android:layout_height="60dp"
-            android:layout_row="0"
-            android:layout_column="0"
-
-
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            app:cornerRadius="0dp"
             android:text="@string/_history"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:textColor="@color/white"
+            android:background="@color/purple_200"
+
 
              />
 
         <Button
             android:id="@+id/enter"
+            android:layout_width="170dp"
             android:layout_height="60dp"
-            android:layout_gravity="fill"
-            android:layout_row="0"
-            android:layout_column="1"
+            android:layout_gravity="fill_vertical"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            app:cornerRadius="0dp"
             android:text="@string/_enter"
-            android:textSize="18sp"
+            android:textSize="32sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:textColor="@color/white"
+            android:background="@color/purple_200"
+
             />
 
         <Button
             android:id="@+id/clear"
             android:layout_height="60dp"
-            android:layout_row="0"
-            android:layout_column="2"
             android:layout_width="wrap_content"
-            android:layout_marginStart="5dp"
-            android:layout_marginEnd="15dp"
+            android:layout_gravity="fill"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            app:cornerRadius="0dp"
             android:text="@string/_clear"
             android:textSize="18sp"
-            />
+            app:layout_constraintLeft_toRightOf="@+id/enter"
+            app:layout_constraintRight_toRightOf="parent"
+            android:textColor="@color/white"
+            android:background="@color/purple_200"
 
+
+            />
     </GridLayout>
+    
+
 
 
 
